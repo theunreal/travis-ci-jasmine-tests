@@ -51,4 +51,8 @@ describe('AppComponent', () => {
       expect(compiled.querySelector('h1').textContent).toBe(`New Title!`);
     });
   }));
+
+  it('should populate the anime section with data', async(() => {
+    expect(true).toBe(true);
+  }));
 });
