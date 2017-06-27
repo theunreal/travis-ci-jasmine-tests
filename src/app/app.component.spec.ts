@@ -1,8 +1,9 @@
-import {TestBed, async} from '@angular/core/testing';
+import {TestBed, async, tick} from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { AnimeService } from './anime.service';
-import {HttpModule} from '@angular/http';
+import {HttpModule, XHRBackend} from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 
 describe('AppComponent', () => {
   let fixture;
@@ -16,7 +17,8 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [HttpModule],
-      providers: [AnimeService]
+      providers: [AnimeService,
+        { provide: XHRBackend, useClass: MockBackend }]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(AppComponent);
       component = fixture.componentInsance;
@@ -52,7 +54,4 @@ describe('AppComponent', () => {
     });
   }));
 
-  it('should populate the anime section with data', async(() => {
-    expect(true).toBe(true);
-  }));
 });

@@ -7,19 +7,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AnimeService {
 
-  base_api = 'http://jikan.me/api/';
+  base_api = 'http://api.fixer.io/latest';
 
   constructor(private http: Http) { }
 
   getAnime() {
-    return this.http.get(this.base_api + 'anime/1')
+    return this.http.get(this.base_api)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private extractData(res: Response) {
     const body = res.json();
-    return body.data || { };
+    return body || { };
   }
 
   private handleError (error: Response | any) {

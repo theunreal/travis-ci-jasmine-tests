@@ -23,7 +23,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.animeService.getAnime()
       .subscribe(
-        anime => this.anime = anime,
-        error => console.log(error));
+        (anime) => {
+          this.anime = anime;
+          console.log(this.anime);
+        },
+        (error) => console.log(error)
+      );
   }
 }

@@ -1,7 +1,13 @@
 <h1>{{title}}</h1>
 
 <button (click)="changeTitle()">Change title</button>
+<hr />
 
-<section *ngIf="anime.title">
-  {{anime.title}} - {{anime.type}}
+Rates: <br />
+
+<section *ngIf="anime.rates">
+
+  <span class="currency">USD:</span> <span>{{anime.rates.USD}}</span>
+  <span class="currency">ILS:</span> <span>{{anime.rates.ILS}}</span>
+
 </section>
