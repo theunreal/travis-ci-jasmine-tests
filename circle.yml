@@ -1,0 +1,7 @@
+## my-app/circle.yaml
+machine:
+    node:
+        version: 6.9
+test:
+  override:
+    - ng test --watch=false
