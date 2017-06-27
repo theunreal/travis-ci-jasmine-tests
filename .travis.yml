@@ -44,4 +44,4 @@ script:
   - npm run ci:travis
 
 after_script:
-sh -e /etc/init.d/xvfb stop
+  - sh -e /etc/init.d/xvfb stop
